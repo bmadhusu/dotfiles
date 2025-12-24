@@ -1,0 +1,18 @@
+# This is a .gitignore file to exclude common files and directories from being tracked by Git.
+# Used by .dotfiles
+
+# macOS
+.DS_Store
+.Trashes
+
+# Editor files
+*.swp
+*~
+
+# Application caches
+.cache/
+
+.config/tmux/plugins/*
+.config/nvim/plugins/*
+.config/nvim/plugin/*
+
