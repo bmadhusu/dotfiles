@@ -23,3 +23,7 @@ dot checkout
 - Neovim configuration
 - Tmux configuration
 - Karabiner-Elements configuration
+    - used to remap Caps Lock to Escape
+- keycastr: used to show keystrokes on screen during screencasts
+
+

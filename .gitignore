@@ -15,4 +15,10 @@
 .config/tmux/plugins/*
 .config/nvim/plugins/*
 .config/nvim/plugin/*
+.config/btop/*
+.config/gcloud/*
+.config/github-copilot/*
+.config/iterm2/*
+.config/uv/*
+.config/waveterm/*
 
