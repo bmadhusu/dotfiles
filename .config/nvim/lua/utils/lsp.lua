@@ -1,6 +1,15 @@
 local M = {}
 
-M.on_attach = function(client, bufnr)
+-- this function is invoked from the autocmds and will attach to any buffer that has
+-- a language that's recognized;
+--
+
+M.on_attach = function(event)
+	local client = vim.lsp.get_client_by_id(event.data.client_id)
+	if not client then
+		return
+	end
+	local bufnr = event.buf
 	local keymap = vim.keymap.set
 	local opts = {
 		noremap = true, -- prevent non-recursive mapping
@@ -23,11 +32,11 @@ M.on_attach = function(client, bufnr)
 	keymap("n", "<leader>gr", "<cmd>FzfLua lsp_references<CR>", opts) -- show all references to the symbol under the cursor
 	keymap("n", "<leader>gt", "<cmd>FzfLua lsp_typedefs<CR>", opts) -- Jump to the type definition of the symbol under the cursor
 	keymap("n", "<leader>ds", "<cmd>FzfLua lsp_document_symbols<CR>", opts) -- List all symbols (functions, classes, etc.) in the current file
-	keymap("n", "<leader>ws", "<cmd>FzfLua lsp_worksplace_symbols<CR>", opts) -- Search for any symbol across the entire project/workspace
+	keymap("n", "<leader>ws", "<cmd>FzfLua lsp_workspace_symbols<CR>", opts) -- Search for any symbol across the entire project/workspace
 	keymap("n", "<leader>gi", "<cmd>FzfLua lsp_implementations<CR>", opts) -- Go to implementation
 
 	-- Order Imports (if supported by the client LSP)
-	if client.supports_method("textDocument/codeAction") then
+	if client:supports_method("textDocument/codeAction", bufnr) then
 		keymap("n", "<leader>oi", function()
 			vim.lsp.buf.code_action({
 				context = {

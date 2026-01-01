@@ -26,4 +26,9 @@ dot checkout
     - used to remap Caps Lock to Escape
 - keycastr: used to show keystrokes on screen during screencasts
 
+Note: You will need to install nerdfonts on your system and terminal (eg, iTerm, ghostty, alacritty, etc)
 
+## Sources
+
+1. [MrJakob's Playlist on Neovim Setup](https://www.youtube.com/playlist?list=PLy68GuC77sURrnMNi2XR1h58m674KOvLG)
+2. [The Rad Lectures](https://www.youtube.com/watch?v=cdAMq2KcF4w)
